@@ -31,3 +31,4 @@ func SetupDatabase() {
 	db = database
 
 }
+

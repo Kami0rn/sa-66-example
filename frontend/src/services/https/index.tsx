@@ -6,36 +6,36 @@ const apiUrl = "http://localhost:8080";
 
 async function GetUsers() {
 
-const requestOptions = {
+    const requestOptions = {
 
-method: "GET",
+    method: "GET",
 
-headers: {
+    headers: {
 
-"Content-Type": "application/json",
+        "Content-Type": "application/json",
 
-},
+    },
 
 };
 
 
 let res = await fetch(`${apiUrl}/users`, requestOptions)
 
-.then((response) => response.json())
+    .then((response) => response.json())
 
-.then((res) => {
+    .then((res) => {
 
-if (res.data) {
+        if (res.data) {
 
-return res.data;
+            return res.data;
 
-} else {
+        } else {
 
-return false;
+            return false;
 
-}
+        }
 
-});
+    });
 
 
 return res;
@@ -45,45 +45,45 @@ return res;
 
 async function CreateUser(data: UsersInterface) {
 
-const requestOptions = {
+    const requestOptions = {
 
-method: "POST",
+        method: "POST",
 
-headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
 
-body: JSON.stringify(data),
+        body: JSON.stringify(data),
 
-};
-
-
-let res = await fetch(`${apiUrl}/users`, requestOptions)
-
-.then((response) => response.json())
-
-.then((res) => {
-
-if (res.data) {
-
-return { status: true, message: res.data };
-
-} else {
-
-return { status: false, message: res.error };
-
-}
-
-});
+    };
 
 
-return res;
+    let res = await fetch(`${apiUrl}/users`, requestOptions)
+
+    .then((response) => response.json())
+
+    .then((res) => {
+
+        if (res.data) {
+
+            return { status: true, message: res.data };
+
+        } else {
+
+            return { status: false, message: res.error };
+
+        }
+
+    });
+
+
+    return res;
 
 }
 
 
 export {
 
-GetUsers,
+    GetUsers,
 
-CreateUser,
+    CreateUser,
 
 };
